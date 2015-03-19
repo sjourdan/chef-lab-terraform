@@ -3,7 +3,7 @@ provider "digitalocean" {
     token = "${var.do_token}"
 }
 
-# Create Airtime
+# Create a node that will be managed by Chef
 resource "digitalocean_droplet" "chef" {
   count = 1
   image = "centos-7-0-x64"
