@@ -4,6 +4,11 @@ provider "digitalocean" {
 }
 
 # Create a node that will be managed by Chef
+# Configure the SSH Key
+resource "digitalocean_ssh_key" "chef-lab-key" {
+    name = "Chef Lab Key"
+    public_key = "${file("${var.do_ssh_key_file}.pub")}"
+}
 resource "digitalocean_droplet" "chef" {
   count = 1
   image = "centos-7-0-x64"
