@@ -20,11 +20,7 @@ resource "digitalocean_droplet" "chef" {
     host = "${digitalocean_droplet.chef.ipv4_address}"
     port = 22
   }
-    
-  # provisioner "local-exec" {
-  #     command = "echo ${digitalocean_droplet.airtime.ipv4_address} > ip.txt"
-  # }
-  
+
   provisioner "remote-exec" {
     
     inline = [
@@ -34,7 +30,3 @@ resource "digitalocean_droplet" "chef" {
     
   }
 }
-
-# output "ip" {
-#     value = "${digitalocean_droplet.airtime.ipv4_address}"
-# }
