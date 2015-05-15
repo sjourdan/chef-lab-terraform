@@ -28,8 +28,7 @@ resource "digitalocean_droplet" "chef" {
   provisioner "remote-exec" {
 
     inline = [
-      "yum update -y",
-      "curl -L https://www.chef.io/chef/install.sh | sudo bash"
+      "yum update -y"
     ]
 
   }
